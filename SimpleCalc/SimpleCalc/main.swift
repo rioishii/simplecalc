@@ -10,6 +10,37 @@ import Foundation
 
 public class Calculator {
     public func calculate(_ args: [String]) -> Int {
+        switch args.last {
+        case "count":
+            return args.count - 1
+        case "avg":
+            let sum = 0
+            for num in args.indices.dropLast() {
+                sum += num
+            }
+            return sum / (args.count - 1)
+        case "fact":
+            let fact = 1
+            for i in 1...args[0] {
+                fact *= i
+            }
+            return fact
+        default:
+            switch args[1] {
+            case "+":
+                return args[0] + args[2]
+            case "-":
+                return args[0] - args[2]
+            case "/":
+                return args[0] / args[2]
+            case "%":
+                return args[0] % args[2]
+            case "*":
+                return args[0] * args[2]
+            default:
+                return args[0]
+            }
+        }
     }
     
     public func calculate(_ arg: String) -> Int {
