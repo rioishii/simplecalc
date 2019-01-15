@@ -20,7 +20,7 @@ public class Calculator {
             var sum = 0
             let numbers = args.dropLast()
             for num in numbers {
-                sum += Int(num)! // cast string to Int
+                sum += Int(num)!
             }
             return sum / (args.count - 1)
         case "fact":
