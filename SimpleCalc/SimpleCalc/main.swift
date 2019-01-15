@@ -22,7 +22,7 @@ public class Calculator {
             for num in numbers {
                 sum += Int(num)!
             }
-            return sum / (args.count - 1)
+            return sum / (numbers.count)
         case "fact":
             var fact = 1
             for i in 1...Int(args[0])! {
