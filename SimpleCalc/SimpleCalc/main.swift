@@ -10,13 +10,17 @@ import Foundation
 
 public class Calculator {
     public func calculate(_ args: [String]) -> Int {
+        if args.count < 2 {
+            return 0;
+        }
         switch args.last {
         case "count":
             return args.count - 1
         case "avg":
             var sum = 0
-            for num in args.indices.dropLast() {
-                sum += num
+            let numbers = args.dropLast()
+            for num in numbers {
+                sum += Int(num)! // cast string to Int
             }
             return sum / (args.count - 1)
         case "fact":
