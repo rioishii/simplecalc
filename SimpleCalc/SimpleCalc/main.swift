@@ -35,12 +35,12 @@ public class Calculator {
                 return Int(args[0])! + Int(args[2])!
             case "-":
                 return Int(args[0])! - Int(args[2])!
+            case "*":
+                return Int(args[0])! * Int(args[2])!
             case "/":
                 return Int(args[0])! / Int(args[2])!
             case "%":
                 return Int(args[0])! % Int(args[2])!
-            case "*":
-                return Int(args[0])! * Int(args[2])!
             default:
                 return Int(args[0])!
             }
@@ -52,10 +52,15 @@ public class Calculator {
     }
 }
 
-print("UW Calculator v1")
-print("Enter an expression separated by returns:")
-let first = readLine()!
-let operation = readLine()!
-let second = readLine()!
-print(Calculator().calculate([first, operation, second]))
-
+let cmdLine = CommandLine.arguments
+switch cmdLine.count {
+case 1:
+    print("UW Calculator v1")
+    print("Enter an expression separated by returns:")
+    let first = readLine()!
+    let operation = readLine()!
+    let second = readLine()!
+    print(Calculator().calculate([first, operation, second]))
+default:
+    print(Calculator().calculate(Array(cmdLine.dropFirst())))
+}
